@@ -1,0 +1,37 @@
+.order-success,
+.order-error {
+    padding: 0%;
+    padding-bottom: 112px;
+
+    text-align: center;
+    margin: auto;
+}
+.order-success .success-lottie,
+.order-error .error-lottie  {
+    height: 200px;
+}
+.order-success a,
+.order-error a {
+    color: white;
+    background: var(--secondary-color);
+
+}
+.order-error a {
+    background: rgb(220, 104, 104);
+}
+.order-success a,
+.order-error a {
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 4px;
+    box-shadow: 2px 2px 4px -3px rgba(0, 0, 0, 0.9);
+}
+.success-text h2,
+.error-text h2 {
+    margin-bottom: 16px;
+}
+.success-text p,
+.error-text p {
+    margin-bottom: 32px;
+
+}
