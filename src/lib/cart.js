@@ -80,7 +80,7 @@ const Cart = {
             this.total.quantity -= inCart.quantity
             this.total.price -= (inCart.product.price * inCart.quantity)
             this.total.formattedPrice = formatPrice(this.total.price)
-            console.log('if(this.items.length > 0) in DELETE')
+            // console.log('if(this.items.length > 0) in DELETE')
         }
 
         this.items = this.items.filter(item => inCart.product.id != item.product.id)
@@ -101,16 +101,16 @@ const product2 = {
     quantity: 1
 }
 
-console.log('add first cart item')
-let oldCart = (Cart.init().addOne(product))
-console.log(oldCart)
+// console.log('add first cart item')
+// let oldCart = (Cart.init().addOne(product))
+// console.log(oldCart)
 
-console.log('add second cart item')
-oldCart =(Cart.init(oldCart).addOne(product))
-console.log(oldCart)
+// console.log('add second cart item')
+// oldCart =(Cart.init(oldCart).addOne(product))
+// console.log(oldCart)
 
-console.log('delete one item')
-oldCart =(Cart.init(oldCart).delete(product.id))
-console.log(oldCart)
+// console.log('delete one item')
+// oldCart =(Cart.init(oldCart).delete(product.id))
+// console.log(oldCart)
 
 module.exports = Cart

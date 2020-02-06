@@ -4,6 +4,13 @@
 
 {% block content %}
 
+    {% if (cart.items) and (cart.items.length < 1) %}
+        {% call card.render ('', 'cart-empty container') %}
+            <p>Seu carrinho está vazio</p>
+            <a href="/products/search" class="button">Comprar</a>
+        {% endcall %}
+    {% else %}
+
     {% call card.render ('Carrinho', 'cart container') %}
         <div class="header">
             <p>Produto</p>
@@ -26,7 +33,7 @@
                                 <i class="material-icons">remove_circle_outline</i>
                             </button>
                         </form>
-                    </div>
+                    
 
                     <span class="quantity">{{item.quantity}}</span>
 
@@ -35,26 +42,26 @@
                             <i class="material-icons">add_circle_outline</i>
                         </button>
                     </form>
-
                 </div>
+            
                 
                 <form class="trash"
                 action="/cart/{{item.product.id}}/delete" 
                 method="POST">
-                    <button class="remove">
+                    <button class="delete">
                         <i class="material-icons">delete</i>
                     </button>
                 </form>
-
+        </div>
             {% endfor %}    
         </div>
 
-        <div class="totoal">
+        <div class="total">
             <p>Total</p>
             <span>{{cart.total.formattedPrice}}</span>
         </div>
 
-        <div class="action">
+        <div class="actions">
             <a href="/products/search" class="button shop">Continuar comprando</a>
             <form action="/orders" method="POST">
                 <button class="button order">
@@ -64,5 +71,7 @@
         </div>
 
     {% endcall %}
+
+    {%  endif %}
 
 {% endblock content %}
