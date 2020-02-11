@@ -8,13 +8,13 @@
         </a>
 
         <form class="search" method="GET" action="/products/search">
-            <input type="text" name="filter" placeholder="Seach for Products" {% if search.term %} value="{{ serach.term }}" {% endif %}>
+            <input type="text" name="filter" placeholder="Search for Products" {% if search.term %} value="{{ search.term }}" {% endif %}>
         </form>
         <nav class="primary">
             <ul>
                 <li>
                     <a href="/ads/create">
-                        {% if user %}
+                        {% if session.userId %}
                             <i class="material-icons">add_circle</i>
                             New Adverts
                     </a>
@@ -23,8 +23,9 @@
                 <li class="accounts">
                     <a href="/accounts">
                         <i class="material-icons">account_circle</i>
-                        {% if user %}
-                            {{ user.name}}
+                      
+                        {% if session.userId %}
+                            {{ session.userName}} 
                         {% else %}
                             My account
                         {% endif %}
@@ -56,7 +57,7 @@
             </ul>
 
         </nav>
-
+    
     </div>
 
 </header>

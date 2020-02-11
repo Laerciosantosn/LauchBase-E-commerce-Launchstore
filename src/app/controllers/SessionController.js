@@ -11,6 +11,7 @@ module.exports = {
     },
     login(req, res){
         req.session.userId =  req.user.id
+        req.session.userName =  req.user.name
         return res.redirect("/users")
     },
     logout(req, res) {

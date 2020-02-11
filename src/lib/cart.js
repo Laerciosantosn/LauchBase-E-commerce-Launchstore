@@ -100,17 +100,4 @@ const product2 = {
     price: 229,
     quantity: 1
 }
-
-// console.log('add first cart item')
-// let oldCart = (Cart.init().addOne(product))
-// console.log(oldCart)
-
-// console.log('add second cart item')
-// oldCart =(Cart.init(oldCart).addOne(product))
-// console.log(oldCart)
-
-// console.log('delete one item')
-// oldCart =(Cart.init(oldCart).delete(product.id))
-// console.log(oldCart)
-
 module.exports = Cart
