@@ -103,21 +103,24 @@ header div.container a {
 }
 
 /* === PRIMARY MENU === */
-nav.primary ul {
-    display: flex;
-    justify-content: space-between;
+nav.primary > ul {
+    display: grid;
+    grid-template-columns: 100px 1fr 50px;
+    grid-gap: 8px;
 }
-nav.primary ul li a{
+nav.primary > ul > li > a{
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 48px;
     color: white;
     transition: 400ms;
+    justify-content: center;
 }
-nav.primary ul li a:hover {
+nav.primary > ul > li > a:hover {
     color: var(--primary-color);
 }
-nav.primary ul li a i {
+nav.primary > ul > li > a > i {
     margin-bottom:  4px;
 }
 

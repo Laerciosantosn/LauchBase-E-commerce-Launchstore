@@ -13,20 +13,23 @@
         <nav class="primary">
             <ul>
                 <li>
-                    <a href="/ads/create">
-                        {% if session.userId %}
+                    {% if session.userId %}
+                        <a href="/ads/create">
                             <i class="material-icons">add_circle</i>
-                            New Adverts
-                    </a>
+                                New Adverts
+                        </a>
                      {% endif %}
                 </li>
-                <li class="accounts">
+                <li class="dropdown-container">
                     <a href="/accounts">
-                        <i class="material-icons">account_circle</i>
                       
                         {% if session.userId %}
-                            {{ session.userName}} 
+
+                            <img src="https://images.unsplash.com/photo-1565464027194-7957a2295fb7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80" alt="">
+
+                            {# {{ session.userName}}  #}
                         {% else %}
+                            <i class="material-icons">account_circle</i>
                             My account
                         {% endif %}
 
@@ -34,10 +37,18 @@
 
                     {% if session.userId %}
 
-                        <ul class="submenu">
+                        <ul class="dropdown header">
+                            <li>
+                                <div>
+                                    <img src="https://images.unsplash.com/photo-1565464027194-7957a2295fb7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80" alt="">
+                                    <p class="name">{{ session.userName}} </p>
+                                    <p>{{ session.userEmail}} </p>
+                                </div>    
+                            </li>
                             <li><a href="/users">My account</a></li>
                             <li><a href="/users/ads">My Requests</a></li>
-                            <li><a href="/selling">My Sales</a></li>
+                            <li><a href="/orders">My Orders</a></li>
+                            <li><a href="/orders/sales">My Sales</a></li>
                             <li>
                                 <form action="/users/logout" method="POST">
                                     <button>Logout</button>
