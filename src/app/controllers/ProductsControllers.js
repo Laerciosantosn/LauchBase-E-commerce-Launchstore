@@ -53,7 +53,7 @@ module.exports = {
                     id: req.params.id
                 }    
             })
-  
+          
             return res.render("products/show", { product })
         } catch (error) {
             console.error(error);
@@ -79,10 +79,11 @@ module.exports = {
     async put(req, res) {
 
         try {
-            
+             
             if(req.files.length != 0){
                 const newFilesPromise = req.files.map(file =>
-                    File.create({...file, product_id: req.body.id}))
+                    // File.create({...file, product_id: req.body.id}))
+                    File.create({ name: file.filename, path: file.path, product_id: req.body.id }))
                     await Promise.all(newFilesPromise)
             }
 
@@ -92,6 +93,18 @@ module.exports = {
                 const lastIndex = removedFiles.length - 1
                 removedFiles.splice(lastIndex, 1)
 
+                const filesPromise = removedFiles.map(id => Products.filesPath(id))
+                let filesPath = await Promise.all(filesPromise)
+                
+
+                filesPath.map(file => {
+                        try {
+                            unlinkSync(file.path)
+                        } catch(err) {
+                            console.error(err)
+                        }
+                    }) 
+ 
                 const removedFilesPromise =  removedFiles.map(id => File.delete(id))
                 await Promise.all(removedFilesPromise)
             }
@@ -131,6 +144,7 @@ module.exports = {
                     console.error(err)
                 }
             }) 
+            await Products.deleteFiles(req.body.id)
 
             return res.redirect('/products/create')
         } catch (error) {

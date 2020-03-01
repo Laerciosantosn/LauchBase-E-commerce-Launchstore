@@ -24,10 +24,10 @@
 .users-ads .item .image {
     width: 100px;
     height: 100px;
-
-    background-position: center;
+    object-fit: cover;
+    /* background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
 
     border-radius: 8px;
     border: 1px solid #eeeeee;

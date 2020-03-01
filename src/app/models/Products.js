@@ -8,9 +8,13 @@ module.exports = {
     async files(id) {
         const results = await db.query(`
             SELECT * FROM files WHERE product_id = $1`, [id])
-
         return results.rows
     },
+    async filesPath(id) {
+        const results = await db.query(`
+            SELECT * FROM files WHERE id = $1`, [id])
+        return results.rows[0]
+    }, 
     async search({filter, category}) {
         
        let query = `

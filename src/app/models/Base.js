@@ -1,4 +1,5 @@
 const db = require("../../config/db")
+const fs = require('fs')
 
 function find(filters, table) {
     let query = `SELECT * FROM ${table}`
@@ -78,8 +79,22 @@ const Base = {
         }      
     },
     delete(id){
+        try { 
+            // logica pra remover fotos da pasta
+        // const result = await db.query(`SELECT * FROM files WHERE id = $1`,[id]) 
+        // const file = result.rows[0]
+
+        // fs.unlinkSync(file.path)
+            // Fim da logica pra remover arquivo da pasta
         return db.query(`DELETE FROM ${this.table} WHERE id = $1`, [id])
+        }
+        catch(err) {
+            console.error(err)
+        }
+    },
+    deleteFiles(id) {
+        return db.query(`DELETE FROM files WHERE product_id = $1`, [id])
     }
 }
-
+   
 module.exports = Base

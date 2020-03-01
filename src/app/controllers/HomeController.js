@@ -6,7 +6,7 @@ module.exports = {
             const allProducts = await LoadProductService.load('products')
             const products = allProducts
             .filter((product, index) => index > 5 ? false : true)
-            
+
             return res.render("home/index",{ products })
         }
         catch(err){
@@ -14,3 +14,4 @@ module.exports = {
         }
     }
 }
+ 

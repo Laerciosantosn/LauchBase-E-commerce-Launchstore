@@ -80,7 +80,6 @@ const Cart = {
             this.total.quantity -= inCart.quantity
             this.total.price -= (inCart.product.price * inCart.quantity)
             this.total.formattedPrice = formatPrice(this.total.price)
-            // console.log('if(this.items.length > 0) in DELETE')
         }
 
         this.items = this.items.filter(item => inCart.product.id != item.product.id)
@@ -90,14 +89,5 @@ const Cart = {
         return this.items.find(item => item.product.id == productId)
     }
 }
-const product = {
-    id: 1,
-    price: 199,
-    quantity: 2
-}
-const product2 = {
-    id: 2,
-    price: 229,
-    quantity: 1
-}
+
 module.exports = Cart

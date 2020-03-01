@@ -7,10 +7,17 @@
         <div class="items">
             {% for product in products %}
                 <div class="product">
-                    <div class="image"
-                        style="background-image: url('{{ product.img if product.img else '//placehold.it/500x500?text= Produto sem imagem'}}');"
+                    {# <div class="image"
+                        style="background-image: url('{{ product.img if product.img else 'http://placehold.it/500x500?text=PRODUTO SEM FOTO'}}');"
                     >
+                    </div> #}
+                    {%if product.img %}
+                    <div class="image" >
+                        <img src="{{ product.img }}" alt="">
                     </div>
+                    {% else %}
+                        <img class="image" src="http://placehold.it/500x500?text=PRODUTO SEM FOTO" alt="">
+                    {% endif %}
                    <div id="old-price">
                         {% if product.formatedOldPrice != formatedPrice %}
                             <div class="old-price">{{ product.formatedOldPrice }}</div>
