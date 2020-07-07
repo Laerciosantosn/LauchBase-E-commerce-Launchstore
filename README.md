@@ -19,8 +19,8 @@
 <br>
 
 <div>
-  <img src="./public/images/loguin.gif" alt="demo" height="400" width="535">
-  <img src="./public/images/order.gif" alt="demo" height="400" width="535">
+  <img src="./public/images/loguin.gif" alt="demo" height="400" width="450">
+  <img src="./public/images/order.gif" alt="demo" height="400" width="450">
 </div>
 
 <hr />
