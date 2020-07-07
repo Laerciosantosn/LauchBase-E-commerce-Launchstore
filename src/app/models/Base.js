@@ -51,7 +51,6 @@ const Base = {
             const query = `INSERT INTO ${this.table} (${keys.join(',')})
                 VALUES (${values.join(',')})
                 RETURNING id`
-
             const results = await db.query(query)
             return results.rows[0].id
 
@@ -80,12 +79,7 @@ const Base = {
     },
     delete(id){
         try { 
-            // logica pra remover fotos da pasta
-        // const result = await db.query(`SELECT * FROM files WHERE id = $1`,[id]) 
-        // const file = result.rows[0]
-
-        // fs.unlinkSync(file.path)
-            // Fim da logica pra remover arquivo da pasta
+   
         return db.query(`DELETE FROM ${this.table} WHERE id = $1`, [id])
         }
         catch(err) {

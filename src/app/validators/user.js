@@ -20,7 +20,7 @@ async function show(req, res, next) {
     const user = await User.findOne({ where: {id} })
 
     if (!user)  return res.render("user/register", {
-        error: "Usuaário não encontrado"
+        error: "User not found"
     })
 
     req.user = user

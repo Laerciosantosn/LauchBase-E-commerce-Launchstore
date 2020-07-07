@@ -125,7 +125,7 @@ CREATE TABLE "orders" (
   "buyer_id" int NOT NULL,
   "product_id" int NOT NULL,
   "price" int NOT NULL,
-  "Quantity" int DEFAULT 0,
+  "quantity" int DEFAULT 0,
   "total" int NOT NULL,
   "status" text NOT NULL,
   "created_at" timestamp DEFAULT (now()),
