@@ -7,7 +7,7 @@
 </div>
 
 
-<p align="center">Complete website for a recipes company called Foodfy.</p>
+<p align="center">Complete website for a e commerce company called Lauchstore.</p>
 <br>
 
 <p align="center">
