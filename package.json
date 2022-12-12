@@ -10,7 +10,7 @@
     "browser-sync": "browser-sync start --proxy http://localhost:5000 --files ."
   },
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "bcryptjs": "^2.4.3",
     "connect-pg-simple": "^6.1.0",
     "dotenv": "^8.2.0",
